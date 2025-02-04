@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+    <title>create</title>
+</head>
+<body>
+<header th:replace="fragments :: header"></header>
+<div class="container">
+    <div class="col-5 mx-auto">
+        <h2 class="h2 text-center">Ajout d'une nouvelle personne</h2>
+        <form method="post" th:action="@{/saveperson}" th:object="${person}">
+            <div class="form-group mb-3">
+                <label for="nomInput">Nom</label>
+                <input type="text" th:field="*{nom}" class="form-control" id="nomInput"
+                       aria-describedby="nomHelp" placeholder="Saisir le nom">
+            </div>
+            <div class="form-group">
+                <label for="prenomInput">Prénom</label>
+                <input type="text" th:field="*{prenom}" class="form-control" id="prenomInput"
+                       aria-describedby="prenomHelp" placeholder="Saisir le prenom">
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mt-3">Créer</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+<footer th:replace="fragments :: footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+    <title>update</title>
+</head>
+<body>
+<header th:replace="fragments :: header"></header>
+    <div class="container">
+        <h2 class="h2">Modification d'une personne</h2>
+        <div>
+            <form method="post"
+                  th:action="@{/saveperson}" th:object="${person}">
+                <div class="form-group">
+                    <input type="hidden" th:field="*{id}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="nomInput">Nom</label>
+                    <input type="text" th:field="*{nom}" class="form-control" id="nomInput"
+                           name="nomInput" aria-describedby="nomHelp" placeholder="Saisir le nom">
+                    <small id="nomHelp" class="form-text text-muted">Merci d'écrire le nom.</small>
+                </div>
+                <div class="form-group">
+                    <label for="prenomInput">Prénom</label>
+                    <input type="text" th:field="*{prenom}" class="form-control" id="prenomInput"
+                           name="prenomInput" aria-describedby="prenomHelp" placeholder="Saisir le prénom">
+                    <small id="prenomHelp" class="form-text text-muted">Merci d'écrire le prenom.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Modifier</button>
+            </form>
+        </div>
+    </div>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
