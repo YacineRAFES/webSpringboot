@@ -1,5 +1,7 @@
 FROM openjdk:21
 
+ENV FR.AFPA.POMPEY.APPWEB.APIURL=http://API:9000
+
 LABEL authors="Yacine"
 
 WORKDIR /app
