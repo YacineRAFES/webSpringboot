@@ -22,7 +22,7 @@ services:
             -   ./apiSpringboot:/app
     appweb:
         build:
-            context: ./target/AppWeb-0.0.1-SNAPSHOT.jar
+            context: .
             dockerfile: Dockerfile
         ports:
             - "8080:8080"
