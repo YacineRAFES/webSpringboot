@@ -9,6 +9,7 @@ services:
         ports:
             - '3306:3306'
             - '9000:9000'
+            - '8080:8080'
         volumes:
             - /infra/mysql/dump:/springboot.sql
             - /infra/jenkins:/var/jenkins_config
