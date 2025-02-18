@@ -14,12 +14,12 @@ services:
             -   ./infra/mysql/dump:/docker-entrypoint-initdb.d
     appapi:
         build:
-            context: ./apiSpringboot
+            context: ../apiSpringboot
             dockerfile: Dockerfile
         ports:
             - "8081:8081"
         volumes:
-            -   ./apiSpringboot:/app
+            -   ../apiSpringboot:/app
     appweb:
         build:
             context: .
