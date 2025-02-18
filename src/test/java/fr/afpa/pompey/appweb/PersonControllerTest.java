@@ -24,7 +24,7 @@ public class PersonControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("home"))
-                .andExpect(content().string(containsString("Maxime")));
+                .andExpect(content().string(containsString("Maxine")));
     }
 
 
