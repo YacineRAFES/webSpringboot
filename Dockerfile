@@ -4,7 +4,8 @@ LABEL authors="Yacine"
 
 WORKDIR /app
 
-COPY target/*.jar app.jar
+#Copie du ficher JAR recuperer de l'artefact de votre projet dans le conteneur
+COPY webSpringboot-0.0.1-SNAPSHOT.jar /app/webSpringboot-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8080
 
