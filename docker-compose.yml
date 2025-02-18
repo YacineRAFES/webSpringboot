@@ -7,9 +7,8 @@ services:
         labels:
             kompose.service.type: nodeport
         ports:
-            - '9595:8080'
-            - '443:8443'
-            - '50000:50000'
+            - '9000:8306'
+            - '9090:9000'
         volumes:
             - /infra/mysql/dump:/springboot.sql
             - /infra/jenkins:/var/jenkins_config
