@@ -2,8 +2,8 @@ name: multiconteneur
 
 services:
     jenkins:
-        image: 'jenkins'
-        container_name: "jenkins"
+        image: 'yacinerafes/webspringboot2025:latest'
+        container_name: "webspringboot2025"
         labels:
             kompose.service.type: nodeport
         ports:
@@ -11,7 +11,7 @@ services:
             - '443:8443'
             - '50000:50000'
         volumes:
-            - /infra/jenkins_data:/jenkins_home
+            - /infra/mysql/dump:/springboot.sql
             - /infra/jenkins:/var/jenkins_config
 volumes:
     jenkins_data:
