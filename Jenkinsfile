@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Nettoyage et package JAR Maven') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
         stage('Build Docker Image') {
