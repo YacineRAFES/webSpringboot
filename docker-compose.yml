@@ -6,8 +6,8 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: springboot
-            MYSQL_USER: root
-            MYSQL_PASSWORD: root
+            MYSQL_USER: springboot_user
+            MYSQL_PASSWORD: springboot_password
         ports:
             - "3306:3306"
         volumes:
@@ -27,4 +27,4 @@ services:
         ports:
             - "8080:8080"
         volumes:
-            -   ./AppWeb-0.0.1-SNAPSHOT.jar:/app
+            -   ./AppWeb-0.0.1-SNAPSHOT.jar:/app.jar
