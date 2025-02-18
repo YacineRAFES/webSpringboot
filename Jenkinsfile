@@ -33,11 +33,14 @@ pipeline {
             }
         }
         stage('Push to Docker Hub') {
-            script {
-                docker.withRegistry('', registryCredential) {
-                    docker.image('yacinerafes/webspringboot2025:latest').push()
+            steps {
+                script {
+                    docker.withRegistry('', registryCredential) {
+                        docker.image('yacinerafes/webspringboot2025:latest').push()
+                    }
                 }
             }
+
         }
         stage('Deploiement docker-compose') {
             steps {
