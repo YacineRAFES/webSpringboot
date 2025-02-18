@@ -1,17 +1,30 @@
 name: multiconteneur
 
 services:
-    jenkins:
-        image: 'yacinerafes/webspringboot2025:latest'
-        container_name: "webspringboot2025"
-        labels:
-            kompose.service.type: nodeport
+    mysql:
+        image: mysql:8.3.0
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: springboot
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
         ports:
-            - '9000:9000'
-            - '8080:8080'
+            - "3306:3306"
         volumes:
-            - /infra/mysql/dump:/springboot.sql
-            - /infra/jenkins:/var/jenkins_config
-volumes:
-    jenkins_data:
-        driver: local
+            -   ./infra/mysql/dump:/docker-entrypoint-initdb.d
+    appapi:
+        build:
+            context: ./apiSpringboot
+            dockerfile: Dockerfile
+        ports:
+            - "8081:8081"
+        volumes:
+            -   ./apiSpringboot:/app
+    appweb:
+        build:
+            context: ./AppWeb
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+        volumes:
+            -   ./AppWeb:/app
