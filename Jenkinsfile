@@ -25,13 +25,6 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        stage('Test connection de DockerHub') {
-            steps {
-                docker.withRegistry('', registryCredential) {
-                    sh 'docker info'
-                }
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 script {
@@ -42,7 +35,9 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.image('yacinerafes/webspringboot2025:latest').push()
+                    docker.withRegistry('', registryCredential) {
+                        docker.image('yacinerafes/webspringboot2025:latest').push()
+                    }
                 }
             }
         }
