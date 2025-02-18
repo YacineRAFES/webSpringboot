@@ -9,7 +9,7 @@ services:
             MYSQL_USER: springboot_user
             MYSQL_PASSWORD: springboot_password
         ports:
-            - "3306:3306"
+            - "3307:3307"
         volumes:
             -   ./infra/mysql/dump:/docker-entrypoint-initdb.d
 #    phpmyadmin:
