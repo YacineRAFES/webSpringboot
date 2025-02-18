@@ -12,14 +12,14 @@ services:
             - "3306:3306"
         volumes:
             -   ./infra/mysql/dump:/docker-entrypoint-initdb.d
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        environment:
-            PMA_HOST: mysql
-            PMA_PORT: 3306
-        ports:
-            - "8082:80"
-    api:
+#    phpmyadmin:
+#        image: phpmyadmin/phpmyadmin
+#        environment:
+#            PMA_HOST: mysql
+#            PMA_PORT: 3306
+#        ports:
+#            - "8082:80"
+    appapi:
         build:
             context: .
             dockerfile: Dockerfile
@@ -27,7 +27,7 @@ services:
             - "9000:9000"
         volumes:
             -   ./apiSpringboot-0.0.1-SNAPSHOT.jar:/app.jar
-    web:
+    appweb:
         build:
             context: .
             dockerfile: Dockerfile
