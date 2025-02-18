@@ -24,13 +24,13 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
-            - "9001:9000"
+            - "9000:9000"
     appweb:
         build:
             context: .
             dockerfile: Dockerfile
         ports:
-            - "9090:9090"
+            - "8080:8080"
         volumes:
             -   ./AppWeb-0.0.1-SNAPSHOT.jar:/app.jar
         environment:
