@@ -50,5 +50,13 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            discordSend description: 'Pipeline CI/CD AppWeb réussie', result: 'SUCCESS', title: 'AppWeb CI/CD Pipeline', webhookURL: 'https://discord.com/api/webhooks/1336626322339790859/EIgL8-GUBzcst-6C5VcO9WZ547Z6c-_qwq9AkdHLJQf7nrEie9gGwNgV8_SJ4F2-4ncQ'
+        }
+        failure {
+            discordSend description: 'Pipeline CI/CD AppWeb a été échoué', result: 'FAILURE', title: 'AppWeb CI/CD Pipeline', webhookURL: 'https://discord.com/api/webhooks/1336626322339790859/EIgL8-GUBzcst-6C5VcO9WZ547Z6c-_qwq9AkdHLJQf7nrEie9gGwNgV8_SJ4F2-4ncQ'
+        }
+    }
 }
 
