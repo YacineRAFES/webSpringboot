@@ -20,8 +20,8 @@ services:
         image: yacinerafes/apispringboot:latest
         environment:
             - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/springboot
-            - SPRING_DATASOURCE_USERNAME=${DB_USERNAME}
-            - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+            - SPRING_DATASOURCE_USERNAME=root
+            - SPRING_DATASOURCE_PASSWORD=root
             - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL8Dialect
         ports:
             - "9001:9000"
