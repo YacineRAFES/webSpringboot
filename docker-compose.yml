@@ -1,31 +1,47 @@
 name: multiconteneur
 
 services:
-    mysql:
-        image: mysql:8.0.36
+    mysqldb:
+        image: mysql:latest
+        container_name: mysqldb
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: springboot
-            MYSQL_USER: springboot_user
-            MYSQL_PASSWORD: springboot_password
         ports:
             - "3307:3306"
         volumes:
             -   C:/Users/USER-10/IdeaProjects/springbootAPIWEB/apiSpringboot/infra/mysql/dump/springboot.sql:/docker-entrypoint-initdb.d/springboot.sql
     api:
         depends_on:
-            -   mysql
+            -   mysqldb
+        restart: always
+        container_name: api
         image: yacinerafes/apispringboot:latest
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/springboot
+            - SPRING_DATASOURCE_USERNAME=root
+            - SPRING_DATASOURCE_PASSWORD=root
+            - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL8Dialect
         ports:
             - "9000:9000"
     web:
         depends_on:
             -   api
-        build:
-            context: .
-            dockerfile: Dockerfile
+        image: yacinerafes/webspringboot2025:latest
+        environment:
+            - FR.AFPA.POMPEY.APPWEB.APIURL=http://api:9000
         ports:
             - "9090:9090"
-        volumes:
-            -   ./AppWeb-0.0.1-SNAPSHOT.jar:/app.jar
+
+    phpymyadmin:
+        image: phpmyadmin:latest
+        depends_on:
+            -   mysqldb
+        container_name: phpmyadmin
+        environment:
+            PMA_HOST: mysqldb
+            PMA_PORT: 3306
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "8090:80"
