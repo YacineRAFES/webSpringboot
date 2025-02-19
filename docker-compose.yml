@@ -24,7 +24,7 @@ services:
             -   mysql
         image: yacinerafes/apispringboot:latest
         ports:
-            - "9001:9001"
+            - "9000:9000"
     appweb:
         depends_on:
             -   appapi
@@ -36,4 +36,4 @@ services:
         volumes:
             -   ./AppWeb-0.0.1-SNAPSHOT.jar:/app.jar
         environment:
-            FR.AFPA.POMPEY.APPWEB.APIURL: http://appapi:9001
+            FR.AFPA.POMPEY.APPWEB.APIURL: http://api:9000
