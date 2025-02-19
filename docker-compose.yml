@@ -35,5 +35,3 @@ services:
             - "9090:9090"
         volumes:
             -   ./AppWeb-0.0.1-SNAPSHOT.jar:/app.jar
-        environment:
-            FR.AFPA.POMPEY.APPWEB.APIURL: http://api:9000
