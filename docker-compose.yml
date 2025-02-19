@@ -9,7 +9,7 @@ services:
             MYSQL_USER: springboot_user
             MYSQL_PASSWORD: springboot_password
         ports:
-            - "3307:3306"
+            - "3306:3306"
         volumes:
             -   C:\Users\USER-10\IdeaProjects\springbootAPIWEB\apiSpringboot\infra\mysql\dump:/docker-entrypoint-initdb.d
 #    phpmyadmin:
@@ -20,17 +20,21 @@ services:
 #        ports:
 #            - "8082:80"
     appapi:
+        depends_on:
+            -   mysql
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: yacinerafes/apispringboot:latest
         ports:
-            - "9000:9000"
+            - "9001:9001"
     appweb:
+        depends_on:
+            -   appapi
         build:
             context: .
             dockerfile: Dockerfile
         ports:
-            - "8080:8080"
+            - "9090:9090"
         volumes:
             -   ./AppWeb-0.0.1-SNAPSHOT.jar:/app.jar
         environment:
