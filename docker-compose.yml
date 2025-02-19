@@ -11,7 +11,7 @@ services:
         ports:
             - "3307:3306"
         volumes:
-            -   ./infra/mysql/dump:/docker-entrypoint-initdb.d
+            -   C:\Users\USER-10\IdeaProjects\springbootAPIWEB\apiSpringboot\infra\mysql\dump:/docker-entrypoint-initdb.d
 #    phpmyadmin:
 #        image: phpmyadmin/phpmyadmin
 #        environment:
