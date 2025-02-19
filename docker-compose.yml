@@ -9,7 +9,7 @@ services:
             MYSQL_USER: springboot_user
             MYSQL_PASSWORD: springboot_password
         ports:
-            - "3307:3307"
+            - "3307:3306"
         volumes:
             -   C:\Users\USER-10\IdeaProjects\springbootAPIWEB\apiSpringboot\infra\mysql\dump:/docker-entrypoint-initdb.d
 #    phpmyadmin:
@@ -36,4 +36,4 @@ services:
         volumes:
             -   ./AppWeb-0.0.1-SNAPSHOT.jar:/app.jar
         environment:
-            FR.AFPA.POMPEY.APPWEB.APIURL: http://api:9001
+            FR.AFPA.POMPEY.APPWEB.APIURL: http://appapi:9001
