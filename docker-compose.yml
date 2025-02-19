@@ -22,9 +22,7 @@ services:
     appapi:
         depends_on:
             -   mysql
-        build:
-            context: .
-            dockerfile: docker pull yacinerafes/apispringboot:latest
+        image: yacinerafes/apispringboot:latest
         ports:
             - "9001:9001"
     appweb:
@@ -38,4 +36,4 @@ services:
         volumes:
             -   ./AppWeb-0.0.1-SNAPSHOT.jar:/app.jar
         environment:
-            FR.AFPA.POMPEY.APPWEB.APIURL: http://api:9000
+            FR.AFPA.POMPEY.APPWEB.APIURL: http://api:9001
