@@ -11,7 +11,7 @@ services:
         ports:
             - "3307:3306"
         volumes:
-            -   C:/Users/USER-10/IdeaProjects/springbootAPIWEB/apiSpringboot/infra/mysql/dump/springboot.sql:/docker-entrypoint-initdb.d/springboot.sql
+            - C:/Users/USER-10/IdeaProjects/springbootAPIWEB/apiSpringboot/infra/mysql/dump/springboot.sql:/docker-entrypoint-initdb.d/springboot.sql
     api:
         depends_on:
             -   mysqldb
