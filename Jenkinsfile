@@ -53,10 +53,10 @@ pipeline {
     }
     post {
         success {
-            discordSend description: 'Pipeline CI/CD AppWeb réussie', result: 'SUCCESS', title: 'AppWeb CI/CD Pipeline', webhookURL: env.DS_WEBHOOK_URL
+            discordSend description: 'Pipeline CI/CD AppWeb réussie', result: 'SUCCESS', title: 'AppWeb CI/CD Pipeline', webhookURL: DISCORD_WEBHOOK_URL
         }
         failure {
-            discordSend description: 'Pipeline CI/CD AppWeb a été échoué', result: 'FAILURE', title: 'AppWeb CI/CD Pipeline', webhookURL: env.DS_WEBHOOK_URL
+            discordSend description: 'Pipeline CI/CD AppWeb a été échoué', result: 'FAILURE', title: 'AppWeb CI/CD Pipeline', webhookURL: DISCORD_WEBHOOK_URL
         }
     }
 }
