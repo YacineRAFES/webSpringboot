@@ -4,7 +4,7 @@ pipeline {
         registry = "yacinerafes/webspringboot2025"
         registryCredential = 'jenkins_dockerID'
         dockerImage = ''
-        DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1336626322339790859/EIgL8-GUBzcst-6C5VcO9WZ547Z6c-_qwq9AkdHLJQf7nrEie9gGwNgV8_SJ4F2-4ncQ'
+        DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1336626322339790859/EIgL8-GUBzcst-6C5VcO9WZ547Z6c-_qwq9AkdHLJQf7nrEie9gGwNgV8_SJ4F2-4ncQ"
     }
     stages {
         stage('Nettoyage de workspace') {
